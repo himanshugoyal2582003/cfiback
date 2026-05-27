@@ -31,3 +31,12 @@ This repository contains a Render Blueprint in `render.yaml`.
 
 The Blueprint configures Python, dependency installation, the Uvicorn start
 command, and HTTP health checks at `/health`.
+
+Existing Render web services created manually may still use:
+
+```bash
+uvicorn main:app --host 0.0.0.0 --port $PORT
+```
+
+The root `main.py` entrypoint supports that command. The Blueprint command
+uses `uvicorn app.main:app --host 0.0.0.0 --port $PORT`; either is valid.
